@@ -3,7 +3,7 @@ import json
 
 if __name__ == '__main__':
 
-    path = input("Please enter your path to the file of theHarvester?\n")
+    path = input("Please enter the path to the folder of theHarvester:\n")
     stuff_in_string = 'cd {path} && theHarvester.py -d bing.com -b bing -f "data"'.format(path=path)
     path1 = r'%s' % stuff_in_string
     path2 = r'%s' % path+"\data.json"
