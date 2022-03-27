@@ -14,7 +14,6 @@ if __name__ == '__main__':
     output = []
 
     for element in data["hosts"]:
-        print(element)
         if ":" in element:
             line = element.split(":")
             output.append({"asset": line[0], "ip": line[1]})
