@@ -2,8 +2,13 @@ import os
 import json
 
 if __name__ == '__main__':
-    os.system(r'cd C:\Projects\theHarvester && theHarvester.py -d bing.com -b bing -f "data"')
-    with open(r"C:\Projects\theHarvester\data.json") as f:
+
+    path = input("Please enter your path to the file of theHarvester?\n")
+    stuff_in_string = 'cd {path} && theHarvester.py -d bing.com -b bing -f "data"'.format(path=path)
+    path1 = r'%s' % stuff_in_string
+    path2 = r'%s' % path+"\data.json"
+    os.system(path1)
+    with open(path2, "r") as f:
         data = json.load(f)
 
     output = []
@@ -17,5 +22,5 @@ if __name__ == '__main__':
             output.append({"asset": element, "ip": "No ip"})
     print("JSON File: \n", output)
 
-    with open(r"C:\Projects\theHarvester\data.json", 'w') as json_file:
+    with open(path2, 'w') as json_file:
         json.dump(output, json_file)
