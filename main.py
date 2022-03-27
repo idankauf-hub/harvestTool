@@ -7,6 +7,7 @@ import json
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+
     os.system(r'cd C:\Projects\theHarvester && theHarvester.py -d bing.com -b bing -f "data"')
     with open(r"C:\Projects\theHarvester\data.json") as f:
         data = json.load(f)
