@@ -4,11 +4,11 @@ import json
 if __name__ == '__main__':
 
     path = input("Please enter the path to the folder of theHarvester:\n")
-    stuff_in_string = 'cd {path} && theHarvester.py -d bing.com -b bing -f "data"'.format(path=path)
-    path1 = r'%s' % stuff_in_string
-    path2 = r'%s' % path+"\data.json"
-    os.system(path1)
-    with open(path2, "r") as f:
+    command = 'cd {path} && theHarvester.py -d bing.com -b bing -f "data"'.format(path=path)
+    pathToFolder = r'%s' % command
+    pathToJson = r'%s' % path+"\data.json"
+    os.system(pathToFolder)
+    with open(pathToJson, "r") as f:
         data = json.load(f)
 
     output = []
@@ -21,5 +21,5 @@ if __name__ == '__main__':
             output.append({"asset": element, "ip": "No ip"})
     print("JSON File: \n", output)
 
-    with open(path2, 'w') as json_file:
+    with open(pathToJson, 'w') as json_file:
         json.dump(output, json_file)
